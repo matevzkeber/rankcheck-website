@@ -46,7 +46,7 @@
             <h2>The team behind RankCheck</h2>
             <div class="members">
                 <div class="member">
-                    <h3>Matevz</h3>
+                    <h3>Matevž</h3>
                     <p class="role">Developer & Owner</p>
                     <ul class="accounts">
                         <li><a href="https://matevzkeber.si" target="_blank"><i class="fa-solid fa-globe"></i>Personal website</a></li>
