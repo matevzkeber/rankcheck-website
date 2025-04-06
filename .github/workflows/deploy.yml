@@ -22,15 +22,18 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: "/${{ github.event.repository.name }}"
+          BASE_PATH: ""
         run: |
           npm run build
+
+      - name: Add CNAME
+        run: echo "rankcheck.app" > build/CNAME
 
       - name: Upload Pages Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           # this should match the `pages` option in your adapter-static options
-          path: 'build/'
+          path: "build/"
 
   deploy:
     needs: build_site
