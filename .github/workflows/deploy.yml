@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 'master'
+    branches: "master"
 
 jobs:
   build_site:
@@ -22,15 +22,18 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: ''
+          BASE_PATH: ""
         run: |
           npm run build
-
-      - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v3
+      - name: Add .nojekyll
+        run: touch build/.nojekyll
+      - name: Add 404.html
+        run: cp build/index.html build/404.html
+      - name: Upload Pages Artifacts
+        uses: actions/upload-pages-artifact@v1
         with:
           # this should match the `pages` option in your adapter-static options
-          path: 'build/'
+          path: build/
 
   deploy:
     needs: build_site
@@ -45,6 +48,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
