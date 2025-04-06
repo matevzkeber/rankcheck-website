@@ -22,18 +22,15 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: ""
+          BASE_PATH: "/${{ github.event.repository.name }}"
         run: |
           npm run build
-      - name: Add .nojekyll
-        run: touch build/.nojekyll
-      - name: Add 404.html
-        run: cp build/index.html build/404.html
+
       - name: Upload Pages Artifacts
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # this should match the `pages` option in your adapter-static options
-          path: build/
+          path: 'build/'
 
   deploy:
     needs: build_site
@@ -50,4 +47,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

@@ -64,10 +64,6 @@
             font-size: 1.2rem;
         }
 
-        nav a span {
-            display: none;
-        }
-
         nav a i {
             margin-right: 0;
         }

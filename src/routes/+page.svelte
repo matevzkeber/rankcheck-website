@@ -315,14 +315,6 @@
             justify-content: center;
         }
 
-        .server-btn {
-            display: none;
-        }
-
-        #preview img {
-            width: 350px;
-        }
-
         #preview h2 {
             font-size: 1.7rem;
         }
@@ -445,10 +437,6 @@
             display: none;
         }
 
-        #preview img {
-            width: 300px;
-        }
-
         #preview h2 {
             font-size: 1.3rem;
         }
@@ -500,11 +488,6 @@
         #home .links a {
             padding: .4rem;
             font-size: .8rem;
-        }
-
-
-        #preview img {
-            width: 250px;
         }
 
         #preview h2 {
